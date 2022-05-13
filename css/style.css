@@ -1,18 +1,22 @@
-*{
+* {
     box-sizing: border-box;
 }
-html, body{
+
+html,
+body {
     margin: 0;
     height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-nav{
+
+nav {
     position: fixed;
     width: 15%;
     background-color: black;
     height: 100%;
 }
-nav a{
+
+nav a {
     display: block;
     color: white;
     text-decoration: none;
@@ -22,58 +26,90 @@ nav a{
     transition-duration: 0.5s;
     font-weight: bolder;
 }
-nav a:first-child{
+
+nav a:first-child {
     margin-top: 100px;
     padding: 0;
     height: 53px;
 }
-nav a p{
+
+nav a p {
     position: relative;
     top: -15px;
     font-size: 53px;
 }
-nav a:hover{
+
+nav a:hover {
     transition-duration: 0.5s;
     background-color: white;
     color: black;
 }
-.contain{
+
+.contain {
     min-height: 100%;
     width: 85%;
     margin-left: 15%;
     position: relative;
 }
-main{
+
+main {
     padding: 1em;
     padding-bottom: 48px;
     overflow: hidden;
     text-align: center;
 }
-.grid{
+
+.grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
-h1{
+
+h1 {
     grid-column: span 3;
 }
-section{
+
+form,
+.inline {
+    display: inline;
+}
+
+section {
     grid-column: span 1;
     text-align: left;
 }
-section:not(:first-child){
+
+section:not(:first-child) {
     padding-left: 10px;
 }
-section:not(:last-child){
+
+section:not(:last-child) {
     padding-right: 10px;
     border-right: 2px solid black;
 }
-table{
+
+table {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
     border: 2px solid black;
 }
-td{
-    padding: 5px;
+
+td {
+    text-align: center;
+    padding: 20px 0;
+    color: white;
+    width: 40px;
 }
-footer{
+
+.redcard {
+    background-color: darkred;
+}
+
+.blackcard {
+    background-color: black;
+}
+
+footer {
     position: absolute;
     bottom: 0px;
     text-align: center;
@@ -83,17 +119,20 @@ footer{
     border-top: 2px solid black;
     background-color: white;
 }
-.cols{
+
+.cols {
     float: left;
     width: 8.25%;
 }
-.rows{
+
+.rows {
     display: block;
     border: 1px solid black;
     width: 100%;
     height: auto;
 }
-.truetime{
+
+.truetime {
     background-color: darkred;
     color: white;
     font-weight: bold;
