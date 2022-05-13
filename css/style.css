@@ -67,6 +67,12 @@ section:not(:last-child){
     padding-right: 10px;
     border-right: 2px solid black;
 }
+table{
+    border: 2px solid black;
+}
+td{
+    padding: 5px;
+}
 footer{
     position: absolute;
     bottom: 0px;
