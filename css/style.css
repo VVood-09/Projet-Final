@@ -4,10 +4,10 @@ html, body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 nav{
+    position: fixed;
     width: 15%;
-    height: 100%;
-    float: left;
     background-color: black;
+    height: 100%;
 }
 nav a{
     display: block;
@@ -15,25 +15,42 @@ nav a{
     text-decoration: none;
     width: 100%;
     text-align: center;
-    padding: 5% 0;
+    padding: 16px 0;
+    transition-duration: 0.5s;
+    font-weight: bolder;
 }
-nav a: :hover{
-
+nav a:first-child{
+    margin-top: 100px;
+    padding: 0;
+    height: 53px;
+}
+nav a p{
+    position: relative;
+    top: -15px;
+    font-size: 53px;
+}
+nav a:hover{
+    transition-duration: 0.5s;
+    background-color: white;
+    color: black;
 }
 .contain{
-    float: left;
     min-height: 100%;
     width: 85%;
+    margin-left: 15%;
     position: relative;
 }
 main{
-    padding: 1em 1em 3em 1em;
+    padding: 1em;
+    padding-bottom: 48px;
+    overflow: hidden;
+    text-align: center;
 }
 footer{
     position: absolute;
-    bottom: 0;
+    bottom: 0px;
     text-align: center;
-    width: 55%;
+    width: 70%;
     margin: 0 15%;
     padding: 10px 0;
     border-top: 2px solid black;
