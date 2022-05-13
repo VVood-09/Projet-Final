@@ -1,21 +1,30 @@
-body{
+html, body{
     margin: 0;
-    width: auto;
-    text-align: center;
+    height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-a{
-    
-    font-size: 16px;
-    color: white;
-    background-color: black;
-    padding: 16px;
+nav{
+    width: 15%;
+    height: 100%;
+    float: left;
 }
-a:hover{
-    transition-duration: .5s;
-    padding: 8px 16px;
-    background-color: white;
-    color: black;
+.contain{
+    float: left;
+    min-height: 100%;
+    width: 85%;
+    position: relative;
+}
+main{
+    padding: 1em 1em 3em 1em;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 55%;
+    margin: 0 15%;
+    padding: 10px 0;
+    border-top: 2px solid black;
 }
 .cols{
     float: left;
