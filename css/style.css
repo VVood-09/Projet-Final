@@ -68,7 +68,10 @@ h1 {
     grid-column: span 3;
 }
 
-form,
+form, ul, li{
+    text-align: left;
+}
+
 .inline {
     display: inline;
 }
