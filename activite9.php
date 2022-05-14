@@ -36,7 +36,7 @@ shuffle($deck);
         <main>
             <h1>Activité 9</h1>
             <h1>Environnement de développement Web 1</h1>
-            <form action="activite9.php">
+            <form class="inline" action="activite9.php">
                 <input type="submit" value="Rebrassez">
             </form>
             <p class="inline">le jeux de carte.</p>
