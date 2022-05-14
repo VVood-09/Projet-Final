@@ -68,7 +68,7 @@ h1 {
     grid-column: span 3;
 }
 
-form, ul, li{
+.lefttext{
     text-align: left;
 }
 

@@ -1,5 +1,6 @@
 <?php
 
+
 $motDePasse = $_POST["motDePasse"] ?? "";
 
 function bruteForce($motDePasse)
@@ -12,16 +13,14 @@ function bruteForce($motDePasse)
                 for ($compteur4 = 0; $compteur4 < 35; $compteur4++) {
                     $test = $char[$compteur1] . $char[$compteur2] . $char[$compteur3] . $char[$compteur4];
                     if (trim($test) == $motDePasse) {
-                        echo "Mot de passe vérifié: " . $motDePasse . "<br>";
-                        return;
+                        return false;
                     }
                 }
             }
         }
     }
     if (trim($test) <> $motDePasse) {
-        echo "Mot de passe vérifié: " . $motDePasse . "<br>Contient un ou plusieur caractère invalide.<br>";
-        return;
+        return true;
     }
 }
 function timeRunned($motDePasse)
@@ -30,11 +29,12 @@ function timeRunned($motDePasse)
     bruteForce($motDePasse);
     $end_time = microtime(true);
     $execution_times[] = ($end_time - $start_time);
-    echo "Temps d'execution: " . $execution_times[0] . "<br><br>";
+    return $execution_times[0];
 }
-timeRunned("hb0e1");
-timeRunned("auto");
-timeRunned("z5e8");
+
+if (strlen($motDePasse) == 4) {
+    timeRunned($motDePasse);
+}
 
 ?>
 
@@ -48,6 +48,12 @@ timeRunned("z5e8");
     <meta name="author" content="Vincent Dubois #2295393">
     <link rel="stylesheet" href="css/style.css">
     <title>index</title>
+    <style>
+        .centered {
+            text-align: center;
+            padding-top: 57px;
+        }
+    </style>
 </head>
 
 <body>
@@ -63,18 +69,38 @@ timeRunned("z5e8");
         <main class="grid">
             <h1>Activité 10</h1>
             <h1>Environnement de développement Web 1</h1>
-            <form action="activite10.php" method="post">
-                <label for="motDePasse">
-                    Condition:
-                    <ul>
-                        <li>4 charactères totaux</li>
-                        <li>Les lettres minuscules sont autorisées</li>
-                        <li>Tous les chiffres sont autorisés</li>
-                    </ul>
-                </label>
-            </form>
             <section>
-                
+                <h3 class="lefttext">Condition:</h3>
+                <ul>
+                    <li class="lefttext">4 charactères totaux</li>
+                    <li class="lefttext">Les lettres minuscules sont autorisées</li>
+                    <li class="lefttext">Tous les chiffres sont autorisés</li>
+                </ul>
+            </section>
+            <section>
+                <div class="centered">
+                    <form action="activite10.php" method="post">
+                        <input type="text" name="motDePasse" value="<?= $motDePasse ?>">
+                        <input type="submit" value="Envoyez">
+                    </form>
+                </div>
+            </section>
+            <section>
+                <?php if (strlen($motDePasse) > 0) : ?>
+                    <?php if (!bruteForce($motDePasse)) : ?>
+                        <h3>Mot de passe vérifié: <?= $motDePasse ?></h3>
+                    <?php endif ?>
+                    <?php if (bruteForce($motDePasse)) : ?>
+                        <h3>Mot de passe vérifié: <?= $motDePasse ?><br>Contient un ou plusieur caractère invalide.</h3>
+                    <?php endif ?>
+                <?php endif ?>
+                <?php if (strlen($motDePasse) <> 0) : ?>
+                    <h3>Temps d'execution: <?= timeRunned($motDePasse) ?></h3>
+                <?php endif ?>
+
+                <?php if (strlen($motDePasse) == 0) : ?>
+                    <h3>Aucun mot saisi.<h3p>
+                        <?php endif ?>
             </section>
         </main>
         <footer>
