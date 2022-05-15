@@ -12,6 +12,10 @@
  Page 3: Une page affichant un paquet de cartes brassé de manière aléatoire et différente à chaque rafraîchissement. C'est à vous de decider comment vous voulez effectuer le brassage.  
  Page 4: Un formulaire en haut de page demandant à un utilisateur d'entrer un mot de passe de 4 symboles incluant les lettres de l'alphabet en minuscule et les chiffres (vous pouvez assumer que les utilisateurs ne feront pas d'erreurs) avec un bouton de soumission. Une fois le bouton appuyer, afficher le temps nécessaire pour effectuer une attaque par force brute sur le mot de passe.  
 
-Merci à pcavendano pour avoir cherché la fonction qui use la bonne 'timezone'.
+# Contributions
+ sont le bienvue. Prendre en compte qu'il s'agit d'un projet de première session de développement Web.
+
+# Merci
+ à pcavendano pour avoir cherché la fonction qui use la bonne 'timezone'.
 
 # Licence publique
