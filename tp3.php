@@ -40,6 +40,7 @@ if (count($_POST) > 0) {
         <main>
             <h1>Travail pratique 3</h1>
             <h1>Environnement de développement Web 1</h1>
+            <p><b>Format:</b> XX:XX</p>
             <p><b>Attention:</b> si votre heure et/ou minute sont à chiffre seul, n'entrez pas de 0 avant.</p>
             <p class="inline">Devinez le l'heure:</p>
             <form class="inline" action="tp3.php" method="post">
