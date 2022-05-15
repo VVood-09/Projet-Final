@@ -68,7 +68,7 @@ h1 {
     grid-column: span 3;
 }
 
-.lefttext{
+.lefttext {
     text-align: left;
 }
 
@@ -135,8 +135,21 @@ footer {
     height: auto;
 }
 
-.truetime {
-    background-color: darkred;
+.truetime,
+.realtime,
+.badchoice {
     color: white;
     font-weight: bold;
+}
+
+.truetime {
+    background-color: darkblue;
+}
+
+.realtime {
+    background-color: darkgreen;
+}
+
+.badchoice {
+    background-color: darkred;
 }

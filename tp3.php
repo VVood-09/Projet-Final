@@ -4,6 +4,14 @@ $date = date('h:i');
 $orderdate = explode(':', $date);
 $heures = $orderdate[0];
 $minutes   = $orderdate[1];
+
+$tempsDevin = $_POST["tempsDevin"] ?? "";
+
+if (count($_POST) > 0) {
+    $arrayTempsDevin = explode(':', $tempsDevin);
+    $heuresDevin = $arrayTempsDevin[0];
+    $minutesDevin = $arrayTempsDevin[1];
+}
 ?>
 
 <!DOCTYPE html>
@@ -28,37 +36,71 @@ $minutes   = $orderdate[1];
     </nav>
     <div class="contain">
         <main>
-            <?php for ($col = 1; $col <= 12; $col++) { ?>
-                <div class="cols">
-                    <?php for ($row = 0; $row <= 59; $row++) { ?>
-                        <?php if (($row == $minutes) && ($col == $heures)) { ?>
-                            <div class="rows truetime">
-                                <p><?php if ($col < 10) {
-                                        echo "0" . $col;
-                                    } else {
-                                        echo $col;
-                                    } ?>:<?php if ($row < 10) {
-                                                                                                    echo "0" . $row;
-                                                                                                } else {
-                                                                                                    echo $row;
-                                                                                                } ?></p>
-                            </div>
-                        <?php } else { ?>
-                            <div class="rows">
-                                <p><?php if ($col < 10) {
-                                        echo "0" . $col;
-                                    } else {
-                                        echo $col;
-                                    } ?>:<?php if ($row < 10) {
-                                                                                                    echo "0" . $row;
-                                                                                                } else {
-                                                                                                    echo $row;
-                                                                                                } ?></p>
-                            </div>
+            <h1>Travail pratique 3</h1>
+            <h1>Environnement de développement Web 1</h1>
+            <p><b>Attention:</b> si votre heure et/ou minute sont à chiffre seul, n'entrez pas de 0 avant.</p>
+            <p class="inline">Devinez le l'heure:</p>
+            <form class="inline" action="tp3.php">
+                <input type="text" name="tempsDevin" value="<?= $tempsDevin ?>">
+                <input type="submit" value="Rebrassez">
+            </form>
+            <?php if (count($_POST) > 0) : ?>
+                <?php for ($col = 1; $col <= 12; $col++) { ?>
+                    <div class="cols">
+                        <?php for ($row = 0; $row <= 59; $row++) { ?>
+                            <?php if (($row == $minutes) && ($col == $heures)){ ?>
+                                <div class="rows realtime">
+                                    <p><?php if ($col < 10) {
+                                            echo "0" . $col;
+                                        } else {
+                                            echo $col;
+                                        } ?>:<?php if ($row < 10) {
+                                                echo "0" . $row;
+                                            } else {
+                                                echo $row;
+                                            } ?></p>
+                                </div>
+                            <?php } if (($row == $minutesDevin) && ($col == $heuresDevin)){ ?>
+                                <div class="rows badchoice">
+                                    <p><?php if ($col < 10) {
+                                            echo "0" . $col;
+                                        } else {
+                                            echo $col;
+                                        } ?>:<?php if ($row < 10) {
+                                                echo "0" . $row;
+                                            } else {
+                                                echo $row;
+                                            } ?></p>
+                                </div>
+                            <?php } if ((($row == $minutes) && ($col == $heures)) &&  (($row == $minutesDevin) && ($col == $heuresDevin))) { ?>
+                                <div class="rows truetime">
+                                    <p><?php if ($col < 10) {
+                                            echo "0" . $col;
+                                        } else {
+                                            echo $col;
+                                        } ?>:<?php if ($row < 10) {
+                                                echo "0" . $row;
+                                            } else {
+                                                echo $row;
+                                            } ?></p>
+                                </div>
+                            <?php } else { ?>
+                                <div class="rows">
+                                    <p><?php if ($col < 10) {
+                                            echo "0" . $col;
+                                        } else {
+                                            echo $col;
+                                        } ?>:<?php if ($row < 10) {
+                                                echo "0" . $row;
+                                            } else {
+                                                echo $row;
+                                            } ?></p>
+                                </div>
+                            <?php } ?>
                         <?php } ?>
-                    <?php } ?>
-                </div>
-            <?php } ?>
+                    </div>
+                <?php } ?>
+            <?php endif ?>
         </main>
         <footer>
             Projet Final: Vincent Dubois #2295393
