@@ -67,6 +67,9 @@ main {
 h1, .grid3 {
     grid-column: span 3;
 }
+.grid3{
+    padding-top: 16px;
+}
 
 .lefttext {
     text-align: left;

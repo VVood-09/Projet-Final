@@ -1,7 +1,5 @@
 <?php
 
-echo "<pre>" . print_r($_POST, true) . "</pre>";
-
 $tempsDevin = $_POST["tempsDevin"] ?? "";
 
 date_default_timezone_set('America/Toronto');
