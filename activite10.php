@@ -23,6 +23,13 @@ function bruteForce($motDePasse)
         return true;
     }
 }
+
+//Source: https://moodle.cmaisonneuve.qc.ca/cours/mod/assign/view.php?id=231333
+
+//Auteur: kpresseau
+
+//fonction pour calculer le temps d'execution d'une autre fonction
+
 function timeRunned($motDePasse)
 {
     $start_time = microtime(true);
