@@ -9,10 +9,14 @@ $heures = $orderdate[0];
 $minutes   = $orderdate[1];
 
 
-if (count($_POST) > 0) {
-    $arrayTempsDevin = explode(':', $tempsDevin);
-    $heuresDevin = $arrayTempsDevin[0];
-    $minutesDevin = $arrayTempsDevin[1];
+for ($i = 0; $i = strlen($tempsDevin); $i++) {
+    $c = mb_substr($tempsDevin,  $i, 1);
+    if ($c == ":") {
+        $arrayTempsDevin = explode(':', $tempsDevin);
+        $heuresDevin = $arrayTempsDevin[0];
+        $minutesDevin = $arrayTempsDevin[1];
+        return;
+    }
 }
 ?>
 
@@ -48,7 +52,7 @@ if (count($_POST) > 0) {
                 <input type="submit" value="Essayez">
             </form>
             <section class="grid3">
-                <?php if (count($_POST) > 0) : ?>
+                <?php if ($tempsDevin <> "") : ?>
                     <?php for ($col = 1; $col <= 12; $col++) { ?>
                         <div class="cols">
                             <?php for ($row = 0; $row <= 59; $row++) { ?>
@@ -59,10 +63,10 @@ if (count($_POST) > 0) {
                                             } else {
                                                 echo $col;
                                             } ?>:<?php if ($row < 10) {
-                                                    echo "0" . $row;
-                                                } else {
-                                                    echo $row;
-                                                } ?></p>
+                                                        echo "0" . $row;
+                                                    } else {
+                                                        echo $row;
+                                                    } ?></p>
                                     </div>
                                 <?php } elseif (($row == $minutes) && ($col == $heures)) { ?>
                                     <div class="rows realtime">
@@ -71,10 +75,10 @@ if (count($_POST) > 0) {
                                             } else {
                                                 echo $col;
                                             } ?>:<?php if ($row < 10) {
-                                                    echo "0" . $row;
-                                                } else {
-                                                    echo $row;
-                                                } ?></p>
+                                                        echo "0" . $row;
+                                                    } else {
+                                                        echo $row;
+                                                    } ?></p>
                                     </div>
                                 <?php } elseif (($row == $minutesDevin) && ($col == $heuresDevin)) { ?>
                                     <div class="rows badchoice">
@@ -83,10 +87,10 @@ if (count($_POST) > 0) {
                                             } else {
                                                 echo $col;
                                             } ?>:<?php if ($row < 10) {
-                                                    echo "0" . $row;
-                                                } else {
-                                                    echo $row;
-                                                } ?></p>
+                                                        echo "0" . $row;
+                                                    } else {
+                                                        echo $row;
+                                                    } ?></p>
                                     </div>
                                 <?php } else { ?>
                                     <div class="rows">
@@ -95,10 +99,10 @@ if (count($_POST) > 0) {
                                             } else {
                                                 echo $col;
                                             } ?>:<?php if ($row < 10) {
-                                                    echo "0" . $row;
-                                                } else {
-                                                    echo $row;
-                                                } ?></p>
+                                                        echo "0" . $row;
+                                                    } else {
+                                                        echo $row;
+                                                    } ?></p>
                                     </div>
                                 <?php } ?>
                             <?php } ?>

@@ -7,10 +7,10 @@ function bruteForce($motDePasse)
 {
     $motDePasse = trim($motDePasse);
     $char = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    for ($compteur1 = 0; $compteur1 < 35; $compteur1++) {
-        for ($compteur2 = 0; $compteur2 < 35; $compteur2++) {
-            for ($compteur3 = 0; $compteur3 < 35; $compteur3++) {
-                for ($compteur4 = 0; $compteur4 < 35; $compteur4++) {
+    for ($compteur1 = 0; $compteur1 < 36; $compteur1++) {
+        for ($compteur2 = 0; $compteur2 < 36; $compteur2++) {
+            for ($compteur3 = 0; $compteur3 < 36; $compteur3++) {
+                for ($compteur4 = 0; $compteur4 < 36; $compteur4++) {
                     $test = $char[$compteur1] . $char[$compteur2] . $char[$compteur3] . $char[$compteur4];
                     if (trim($test) == $motDePasse) {
                         return false;
