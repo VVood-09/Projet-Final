@@ -1,6 +1,7 @@
 <?php
 
 $tempsDevin = $_POST["tempsDevin"] ?? "";
+$format = false;
 
 date_default_timezone_set('America/Toronto');
 $date = date('h:i');
@@ -8,14 +9,15 @@ $orderdate = explode(':', $date);
 $heures = $orderdate[0];
 $minutes   = $orderdate[1];
 
-
-for ($i = 0; $i = strlen($tempsDevin); $i++) {
-    $c = mb_substr($tempsDevin,  $i, 1);
-    if ($c == ":") {
-        $arrayTempsDevin = explode(':', $tempsDevin);
-        $heuresDevin = $arrayTempsDevin[0];
-        $minutesDevin = $arrayTempsDevin[1];
-        return;
+if (strlen($tempsDevin) > 2 && strlen($tempsDevin) < 6) {
+    for ($i = 0; $i < strlen($tempsDevin); $i++) {
+        $c = mb_substr($tempsDevin,  $i, 1);
+        if ($c == ":") {
+            $arrayTempsDevin = explode(':', $tempsDevin);
+            $heuresDevin = $arrayTempsDevin[0];
+            $minutesDevin = $arrayTempsDevin[1];
+            $format = true;
+        }
     }
 }
 ?>
@@ -52,7 +54,7 @@ for ($i = 0; $i = strlen($tempsDevin); $i++) {
                 <input type="submit" value="Essayez">
             </form>
             <section class="grid3">
-                <?php if ($tempsDevin <> "") : ?>
+                <?php if ($format == true) : ?>
                     <?php for ($col = 1; $col <= 12; $col++) { ?>
                         <div class="cols">
                             <?php for ($row = 0; $row <= 59; $row++) { ?>
