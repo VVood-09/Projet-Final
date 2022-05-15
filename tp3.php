@@ -1,11 +1,15 @@
 <?php
+
+echo "<pre>" . print_r($_POST, true) . "</pre>";
+
+$tempsDevin = $_POST["tempsDevin"] ?? "";
+
 date_default_timezone_set('America/Toronto');
 $date = date('h:i');
 $orderdate = explode(':', $date);
 $heures = $orderdate[0];
 $minutes   = $orderdate[1];
 
-$tempsDevin = $_POST["tempsDevin"] ?? "";
 
 if (count($_POST) > 0) {
     $arrayTempsDevin = explode(':', $tempsDevin);
@@ -40,67 +44,69 @@ if (count($_POST) > 0) {
             <h1>Environnement de développement Web 1</h1>
             <p><b>Attention:</b> si votre heure et/ou minute sont à chiffre seul, n'entrez pas de 0 avant.</p>
             <p class="inline">Devinez le l'heure:</p>
-            <form class="inline" action="tp3.php">
+            <form class="inline" action="tp3.php" method="post">
                 <input type="text" name="tempsDevin" value="<?= $tempsDevin ?>">
-                <input type="submit" value="Rebrassez">
+                <input type="submit" value="Essayez">
             </form>
-            <?php if (count($_POST) > 0) : ?>
-                <?php for ($col = 1; $col <= 12; $col++) { ?>
-                    <div class="cols">
-                        <?php for ($row = 0; $row <= 59; $row++) { ?>
-                            <?php if (($row == $minutes) && ($col == $heures)){ ?>
-                                <div class="rows realtime">
-                                    <p><?php if ($col < 10) {
-                                            echo "0" . $col;
-                                        } else {
-                                            echo $col;
-                                        } ?>:<?php if ($row < 10) {
-                                                echo "0" . $row;
+            <section class="grid3">
+                <?php if (count($_POST) > 0) : ?>
+                    <?php for ($col = 1; $col <= 12; $col++) { ?>
+                        <div class="cols">
+                            <?php for ($row = 0; $row <= 59; $row++) { ?>
+                                <?php if ((($row == $minutes) && ($col == $heures)) &&  (($row == $minutesDevin) && ($col == $heuresDevin))) { ?>
+                                    <div class="rows truetime">
+                                        <p><?php if ($col < 10) {
+                                                echo "0" . $col;
                                             } else {
-                                                echo $row;
-                                            } ?></p>
-                                </div>
-                            <?php } if (($row == $minutesDevin) && ($col == $heuresDevin)){ ?>
-                                <div class="rows badchoice">
-                                    <p><?php if ($col < 10) {
-                                            echo "0" . $col;
-                                        } else {
-                                            echo $col;
-                                        } ?>:<?php if ($row < 10) {
-                                                echo "0" . $row;
+                                                echo $col;
+                                            } ?>:<?php if ($row < 10) {
+                                                    echo "0" . $row;
+                                                } else {
+                                                    echo $row;
+                                                } ?></p>
+                                    </div>
+                                <?php } elseif (($row == $minutes) && ($col == $heures)) { ?>
+                                    <div class="rows realtime">
+                                        <p><?php if ($col < 10) {
+                                                echo "0" . $col;
                                             } else {
-                                                echo $row;
-                                            } ?></p>
-                                </div>
-                            <?php } if ((($row == $minutes) && ($col == $heures)) &&  (($row == $minutesDevin) && ($col == $heuresDevin))) { ?>
-                                <div class="rows truetime">
-                                    <p><?php if ($col < 10) {
-                                            echo "0" . $col;
-                                        } else {
-                                            echo $col;
-                                        } ?>:<?php if ($row < 10) {
-                                                echo "0" . $row;
+                                                echo $col;
+                                            } ?>:<?php if ($row < 10) {
+                                                    echo "0" . $row;
+                                                } else {
+                                                    echo $row;
+                                                } ?></p>
+                                    </div>
+                                <?php } elseif (($row == $minutesDevin) && ($col == $heuresDevin)) { ?>
+                                    <div class="rows badchoice">
+                                        <p><?php if ($col < 10) {
+                                                echo "0" . $col;
                                             } else {
-                                                echo $row;
-                                            } ?></p>
-                                </div>
-                            <?php } else { ?>
-                                <div class="rows">
-                                    <p><?php if ($col < 10) {
-                                            echo "0" . $col;
-                                        } else {
-                                            echo $col;
-                                        } ?>:<?php if ($row < 10) {
-                                                echo "0" . $row;
+                                                echo $col;
+                                            } ?>:<?php if ($row < 10) {
+                                                    echo "0" . $row;
+                                                } else {
+                                                    echo $row;
+                                                } ?></p>
+                                    </div>
+                                <?php } else { ?>
+                                    <div class="rows">
+                                        <p><?php if ($col < 10) {
+                                                echo "0" . $col;
                                             } else {
-                                                echo $row;
-                                            } ?></p>
-                                </div>
+                                                echo $col;
+                                            } ?>:<?php if ($row < 10) {
+                                                    echo "0" . $row;
+                                                } else {
+                                                    echo $row;
+                                                } ?></p>
+                                    </div>
+                                <?php } ?>
                             <?php } ?>
-                        <?php } ?>
-                    </div>
-                <?php } ?>
-            <?php endif ?>
+                        </div>
+                    <?php } ?>
+                <?php endif ?>
+            </section>
         </main>
         <footer>
             Projet Final: Vincent Dubois #2295393
