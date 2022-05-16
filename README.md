@@ -1,7 +1,5 @@
 # Projet-Final
  Projet Final pour Env. dév. Web 1-21647, collège de Maisonneuve  
- Étudiant: Vincent Dubois #2295393
- e2295393@cmaisonneuve.qc.ca
 
  Le Projet-Final est le dernier projet de la première session du cours d'Environnement de développement Web. Il reprend et modifi: tp3, activité 9 et activité 10. Les 3 travaux selectionnés seront mis ensemble auront chacun un lien sous une page index, suivi du courte description de leurs fonctionnement.  
  L'objectif est de démontré que le site et chaque page sont fonctionnels. Par la suite, il faut démontré comment 'debug' https://docs.microsoft.com/fr-ca/visualstudio/debugger/what-is-debugging?view+vs-2022
@@ -15,6 +13,10 @@
 
 # Contributions
  sont le bienvue. Prendre en compte qu'il s'agit d'un projet de première session de développement Web.
+
+# Auteur
+ Étudiant: Vincent Dubois #2295393
+ e2295393@cmaisonneuve.qc.ca
 
 # Merci
  à pcavendano pour avoir cherché la fonction qui use la bonne 'timezone'.
