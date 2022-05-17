@@ -48,6 +48,9 @@ if (strlen($tempsDevin) > 2 && strlen($tempsDevin) < 6) {
             <h1>Environnement de développement Web 1</h1>
             <p><b>Format:</b> xx:xx</p>
             <p><b>Attention:</b> si votre heure et/ou minute sont à chiffre seul, n'entrez pas de 0 avant.</p>
+            <p><b>Vert:</b> vous avez le bon temps.</p>
+            <p><b>Bleu:</b> est l'heure exact.</p>
+            <p><b>Rouge:</b> le temps que vous croyez.</p>
             <p class="inline">Devinez le l'heure:</p>
             <form class="inline" action="tp3.php" method="post">
                 <input type="text" name="tempsDevin" value="<?= $tempsDevin ?>">
