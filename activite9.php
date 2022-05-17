@@ -3,12 +3,23 @@
 $nombres = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 $cartes = ["♦", "♥", "♣", "♠"];
 $deck = [];
+$random = rand(1000, 10000);
+
 for ($i = 0; $i < count($cartes); $i++) {
     for ($j = 0; $j < count($nombres); $j++) {
         $deck[] = $nombres[$j] . $cartes[$i];
     }
 }
-shuffle($deck);
+for ($i = 0; $i < $random; $i++) {
+    $carteAlt1 = rand(0, 51);
+    $carteAlt2 = rand(0, 51);
+
+    $temp = $deck[$carteAlt1];
+    $deck[$carteAlt1] = $deck[$carteAlt2];
+    $deck[$carteAlt2] = $temp;
+}
+
+
 
 ?>
 <!DOCTYPE html>
